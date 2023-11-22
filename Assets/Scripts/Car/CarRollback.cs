@@ -18,35 +18,35 @@ public class CarRollback : MonoBehaviour {
 
     [SerializeField] private bool _showDebug;
 
-    // private void Start() {
-    //     _savedPosition.Push(transform.localPosition);
-    //     _savedRotation.Push(transform.localEulerAngles);
-    // }
-
-    private void Update() {
-        if(_showDebug) Debug.Log(_savedPosition.Count + " " + _savedRotation.Count);
-        //if (!_savedPosition.Contains(transform.localPosition) && _canSaved) {
-        if( GetComponent<CarController>().CurrentCarState == CarState.MOVING || 
-            GetComponent<CarController>().CurrentCarState == CarState.ACCIDENT ||
-            GetComponent<CarController>().CurrentCarState == CarState.IDLE) {
-            if (_savedPosition.Contains(transform.localPosition)) return;
-            _savedPosition.Push(transform.localPosition);
-            _savedRotation.Push(transform.localEulerAngles);
-        }
-        //}
+    private void Start() {
+        SavePosition();
     }
 
+
+    public void SavePosition() {
+        Debug.Log("save " +transform.localPosition);
+        if (_savedPosition.Contains(transform.localPosition)) {
+
+            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
+        
+        _savedPosition.Push(transform.localPosition);
+        _savedRotation.Push(transform.localEulerAngles);
+    }
+    
+     private Coroutine _coroutine;
     private void OnCollisionEnter(Collision other) {
         other.gameObject.TryGetComponent(out CarMove carMove);
         if (!carMove) return;
         _carMove.canmovetrue();
         _carMove.UnfreezeRotation();
         GetComponent<CarController>().SetCurrentCarState(CarState.ACCIDENT);                         //To Do
-        StartCoroutine(StartRollback());
+         if(_coroutine == null) _coroutine = StartCoroutine(StartRollback());
     }
 
+
     private IEnumerator StartRollback() {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.05f); 
         _canSaved = false;
         _carMove.StopMove();
         GetComponent<CarController>().SetCurrentCarState(CarState.ROLLBACK);                         //To Do
@@ -55,16 +55,23 @@ public class CarRollback : MonoBehaviour {
 
     public void BackToStartPosition() {
         if (_savedPosition.Count == 0) return;
-        transform.DORotate(_savedRotation.Pop(), 0.001f);
-        transform.DOMove(_savedPosition.Pop(), 0.001f).OnComplete(() => {
-            if (_savedPosition.Count > 0) {
+        transform.DORotate(_savedRotation.Pop(), 0.1f);
+        transform.DOMove(_savedPosition.Pop(), 0.1f).OnComplete(() => {
+            if (_savedPosition.Count > 0 && _savedRotation.Count > 0) {
                 BackToStartPosition();
             }
             else {
                 _canSaved = true;
                 _carMove.FreezeRotation();
                 _carMove.canmoveFalse();
-                StartCoroutine(SetStateIdle());
+                SavePosition();
+                GetComponent<CarController>().SetCurrentCarState(CarState.IDLE);
+                if (_coroutine != null) {
+                    StopCoroutine(_coroutine);
+                    _coroutine = null;
+                }
+
+                //StartCoroutine(SetStateIdle());
                 GetComponent<CarController>().SetCurrentTurn(GetComponent<CarController>().StartTurn);
             }
         });
@@ -72,6 +79,6 @@ public class CarRollback : MonoBehaviour {
 
     private IEnumerator SetStateIdle() {
         yield return new WaitForSeconds(0.2f);
-        GetComponent<CarController>().SetCurrentCarState(CarState.IDLE); 
+        
     }
 }

@@ -7,6 +7,7 @@ public class CarMove : MonoBehaviour {
     
     [SerializeField] private Rigidbody _rigidbody;
 
+    public float Speed;
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _speedRotation = 1f;
 
@@ -25,15 +26,15 @@ public class CarMove : MonoBehaviour {
     public void UnfreezeRotation() => _rigidbody.freezeRotation = false;
 
     public void StartMove() {
-        Debug.Log("start move");
+       // Debug.Log("start move");
         _controller.SetCurrentCarState(CarState.MOVING);
-        _speed = 8f;
+        _speed = Speed;
         canMove = true;
 
     }
     
     public void StopMove() {
-        Debug.Log("stop move");
+        //Debug.Log("stop move");
         _speed = 0f;
         
         Tween = null;
