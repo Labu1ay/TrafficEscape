@@ -30,7 +30,6 @@ public class CarMove : MonoBehaviour {
         _controller.SetCurrentCarState(CarState.MOVING);
         _speed = _speedCar;
         _canMove = true;
-
     }
     
     public void StopMove() {

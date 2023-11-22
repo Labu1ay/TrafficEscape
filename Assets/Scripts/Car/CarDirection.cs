@@ -9,7 +9,7 @@ public class CarDirection : MonoBehaviour {
     }
 
     private void Start() {
-        Instantiate(Resources.Load(GetPath()), transform);
+        AllServices.Container.Single<IAsset>().Instantiate(GetPath(), transform);
     }
     
     private string GetPath() {
