@@ -15,11 +15,4 @@ public class Crossroad : MonoBehaviour {
             case Turn.DOUBLE_RIGHT: carController.CarMove.RotateCar(1, Turn.RIGHT); break;
         }
     }
-
-    private void OnTriggerExit(Collider other) {
-        other.TryGetComponent(out CarController car);
-        if (!car || car.CurrentCarState != CarState.MOVING) return;
-        
-        car.CarRollback.SavePosition();
-    }
 }

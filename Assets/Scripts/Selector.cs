@@ -1,6 +1,4 @@
-﻿using System;
-using DG.Tweening;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Selector : MonoBehaviour {
     private Camera _camera;
