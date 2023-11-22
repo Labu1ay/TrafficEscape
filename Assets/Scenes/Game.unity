@@ -435,6 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentTurn>k__BackingField: 0
   <CarMove>k__BackingField: {fileID: 298200655}
+  <CarRollback>k__BackingField: {fileID: 298200654}
   <CurrentCarState>k__BackingField: 0
 --- !u!114 &298200654
 MonoBehaviour:
@@ -448,8 +449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9dfafd29b446bda2246d73f18527dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carMove: {fileID: 298200655}
-  _showDebug: 1
 --- !u!114 &298200655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,10 +462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 298200656}
-  Speed: 8
-  _speed: 0
+  _speedCar: 8
   _speedRotation: 0.25
-  canMove: 0
 --- !u!54 &298200656
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -942,6 +939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentTurn>k__BackingField: 0
   <CarMove>k__BackingField: {fileID: 456377176}
+  <CarRollback>k__BackingField: {fileID: 456377175}
   <CurrentCarState>k__BackingField: 0
 --- !u!114 &456377175
 MonoBehaviour:
@@ -955,8 +953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9dfafd29b446bda2246d73f18527dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carMove: {fileID: 456377176}
-  _showDebug: 1
 --- !u!114 &456377176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,10 +966,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 456377177}
-  Speed: 8
-  _speed: 0
+  _speedCar: 8
   _speedRotation: 0.25
-  canMove: 0
 --- !u!54 &456377177
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1467,6 +1461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentTurn>k__BackingField: 3
   <CarMove>k__BackingField: {fileID: 760034860}
+  <CarRollback>k__BackingField: {fileID: 760034859}
   <CurrentCarState>k__BackingField: 0
 --- !u!114 &760034859
 MonoBehaviour:
@@ -1480,8 +1475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9dfafd29b446bda2246d73f18527dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carMove: {fileID: 760034860}
-  _showDebug: 1
 --- !u!114 &760034860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1495,10 +1488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 760034861}
-  Speed: 8
-  _speed: 0
+  _speedCar: 8
   _speedRotation: 0.25
-  canMove: 0
 --- !u!54 &760034861
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1804,6 +1795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentTurn>k__BackingField: 1
   <CarMove>k__BackingField: {fileID: 918095291}
+  <CarRollback>k__BackingField: {fileID: 918095290}
   <CurrentCarState>k__BackingField: 0
 --- !u!114 &918095290
 MonoBehaviour:
@@ -1817,8 +1809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9dfafd29b446bda2246d73f18527dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carMove: {fileID: 918095291}
-  _showDebug: 1
 --- !u!114 &918095291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1832,10 +1822,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 918095292}
-  Speed: 8
-  _speed: 0
+  _speedCar: 8
   _speedRotation: 0.25
-  canMove: 0
 --- !u!54 &918095292
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2092,6 +2080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentTurn>k__BackingField: 2
   <CarMove>k__BackingField: {fileID: 980929284}
+  <CarRollback>k__BackingField: {fileID: 980929283}
   <CurrentCarState>k__BackingField: 0
 --- !u!114 &980929283
 MonoBehaviour:
@@ -2105,8 +2094,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9dfafd29b446bda2246d73f18527dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carMove: {fileID: 980929284}
-  _showDebug: 1
 --- !u!114 &980929284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2120,10 +2107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 980929285}
-  Speed: 8
-  _speed: 0
+  _speedCar: 8
   _speedRotation: 0.25
-  canMove: 0
 --- !u!54 &980929285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2422,10 +2407,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1447049044}
-  Speed: 8
-  _speed: 0
+  _speedCar: 8
   _speedRotation: 0.25
-  canMove: 0
 --- !u!65 &1447049040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2533,8 +2516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9dfafd29b446bda2246d73f18527dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carMove: {fileID: 1447049039}
-  _showDebug: 1
 --- !u!114 &1447049047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2562,6 +2543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentTurn>k__BackingField: 3
   <CarMove>k__BackingField: {fileID: 1447049039}
+  <CarRollback>k__BackingField: {fileID: 1447049046}
   <CurrentCarState>k__BackingField: 0
 --- !u!1 &1528920961
 GameObject:
@@ -2834,6 +2816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentTurn>k__BackingField: 4
   <CarMove>k__BackingField: {fileID: 1805889560}
+  <CarRollback>k__BackingField: {fileID: 1805889559}
   <CurrentCarState>k__BackingField: 0
 --- !u!114 &1805889559
 MonoBehaviour:
@@ -2847,8 +2830,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9dfafd29b446bda2246d73f18527dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carMove: {fileID: 1805889560}
-  _showDebug: 1
 --- !u!114 &1805889560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2862,10 +2843,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1805889561}
-  Speed: 8
-  _speed: 0
+  _speedCar: 8
   _speedRotation: 0.25
-  canMove: 0
 --- !u!54 &1805889561
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3095,6 +3074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentTurn>k__BackingField: 1
   <CarMove>k__BackingField: {fileID: 1987340426}
+  <CarRollback>k__BackingField: {fileID: 1987340425}
   <CurrentCarState>k__BackingField: 0
 --- !u!114 &1987340425
 MonoBehaviour:
@@ -3108,8 +3088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9dfafd29b446bda2246d73f18527dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carMove: {fileID: 1987340426}
-  _showDebug: 1
 --- !u!114 &1987340426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3123,10 +3101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1987340427}
-  Speed: 8
-  _speed: 0
+  _speedCar: 8
   _speedRotation: 0.25
-  canMove: 0
 --- !u!54 &1987340427
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -8,14 +8,17 @@ public enum CarState {
 }
 
 [RequireComponent(typeof(CarMove))]
+[RequireComponent(typeof(CarRollback))]
 public class CarController : MonoBehaviour {
     [field: SerializeField] public Turn CurrentTurn { get; private set; }
     [field: SerializeField] public CarMove CarMove { get; private set; }
+    [field: SerializeField] public CarRollback CarRollback { get; private set; }
     public Turn StartTurn { get; private set; }
     [field: SerializeField] public CarState CurrentCarState { get; private set; }                      //To do
 
     private void OnValidate() {
         CarMove ??= GetComponent<CarMove>();
+        CarRollback ??= GetComponent<CarRollback>();
     }
 
     private void Start() {
@@ -23,6 +26,7 @@ public class CarController : MonoBehaviour {
         SetCurrentCarState(CarState.IDLE);
         
         CarMove.Init(this);
+        CarRollback.Init(this);
     }
 
     public void SetCurrentTurn(Turn turn) => CurrentTurn = turn;

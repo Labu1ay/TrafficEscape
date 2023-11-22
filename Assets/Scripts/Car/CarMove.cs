@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CarMove : MonoBehaviour {
@@ -7,9 +8,11 @@ public class CarMove : MonoBehaviour {
     
     [SerializeField] private Rigidbody _rigidbody;
 
-    public float Speed;
-    [SerializeField] private float _speed = 1f;
+    [SerializeField] private float _speedCar;
     [SerializeField] private float _speedRotation = 1f;
+    
+    private float _speed;
+    private bool _canMove;
 
     private Tween Tween;
 
@@ -19,33 +22,27 @@ public class CarMove : MonoBehaviour {
 
     public void Init(CarController controller) {
         _controller = controller;
-        _rigidbody.centerOfMass = transform.position;
     }
 
     public void FreezeRotation() => _rigidbody.freezeRotation = true;
     public void UnfreezeRotation() => _rigidbody.freezeRotation = false;
 
     public void StartMove() {
-       // Debug.Log("start move");
         _controller.SetCurrentCarState(CarState.MOVING);
-        _speed = Speed;
-        canMove = true;
+        _speed = _speedCar;
+        _canMove = true;
 
     }
     
     public void StopMove() {
-        //Debug.Log("stop move");
         _speed = 0f;
-        
         Tween = null;
     }
 
-    public void canmovetrue() => canMove = true;
-    public void canmoveFalse() => canMove = false;
-
-    public bool canMove;
+    public void SetCanMove(bool value) => _canMove = value;
+    
     private void FixedUpdate() {
-        if(canMove)
+        if(_canMove)
             _rigidbody.velocity = transform.forward * _speed;
     }
 
